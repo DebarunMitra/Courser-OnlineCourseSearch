@@ -18,6 +18,7 @@
   "homepage": "https://github.com/DebarunMitra/Courser-OnlineCourseSearch#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "express-session": "^1.17.0"
+    "express-session": "^1.17.0",
+    "mongoose": "^5.7.14"
   }
 }
