@@ -1,0 +1,22 @@
+{
+  "name": "courser-onlinecoursesearch",
+  "version": "1.0.0",
+  "description": "Course search application using authentication and REST API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DebarunMitra/Courser-OnlineCourseSearch.git"
+  },
+  "author": "Debarun Mitra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DebarunMitra/Courser-OnlineCourseSearch/issues"
+  },
+  "homepage": "https://github.com/DebarunMitra/Courser-OnlineCourseSearch#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
