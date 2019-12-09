@@ -1,0 +1,64 @@
+.bar-color{
+  background-color: #4B0082;
+}
+.brand-logo{
+  color: #ffffff;
+}
+.ul-position{
+  margin-left: 78vw;
+}
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar ul {
+display: flex;
+}
+
+.navbar a {
+  color: #fff;
+  padding: 0.45rem;
+  margin: 0 0.25rem;
+}
+
+.navbar a:hover {
+  color: var(--primary-color);
+}
+
+.navbar .welcome span {
+  margin-right: 0.6rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 700px) {
+  .brand-logo{
+    color: #ffffff;
+    position: fixed;
+    top: -20px;
+  }
+  .ul-position{
+    margin-left: 0vw;
+  }
+  /* Navbar */
+ .navbar {
+   display: block;
+   text-align: center;
+ }
+
+ .navbar ul {
+   text-align: center;
+   justify-content: center;
+ }
+
+ .navbar h1 {
+   margin-bottom: 1rem;
+ }
+
+ .navbar .welcome {
+   display: none;
+ }
+}
