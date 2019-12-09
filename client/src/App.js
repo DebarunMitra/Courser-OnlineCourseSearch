@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import axios from 'axios';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props){
+  super(props);
+  this.state={
+    user:[],
+    isAuth:false,
+    courses:[],
+    searchField:'',
+    finalSearch:'',
+    providerSearch:'',
+    provider:'',
+    session:''
+  };
 }
+
+componentDidMount(){
+    axios.get('http://localhost:5020/auth/verify')
+     .then((res)=>{
+        this.setState({
+          isAuth:true
+        })
+     })
+
+}
+
+
+  render(){
+    const {user,isAuth,courses,finalSearch,provider,session}=this.state;
+
+    return (
+      <div className="App">
+        <header className="header" >
+          <h1 className="title">Online Course Search</h1>
+          {(!isAuth)?(
+            <button className='login-btn'><a href="http://localhost:5020/auth/google">Sign Up with Google</a></button>
+          ):(
+            <h1>Logged Successfull</h1>
+          )}
+        </header>
+
+      </div>
+    );
+  }
+}
+
 
 export default App;

@@ -15,7 +15,10 @@ require('./config/passport')(passport);
 const auth = require('./routes/auth');
 
 
+
 const app=express();
+
+app.use(express.urlencoded({extended:true}));
 
 //body parser middleware
 app.use(express.json());
@@ -41,6 +44,17 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Middlewares
+app.use(express.json({ extended: false }));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, x-auth-token"
+  );
+  next();
+});
 
 // Use Routes
 app.use('/auth', auth);
