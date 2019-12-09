@@ -1,51 +1,48 @@
-import React, {Component} from 'react';
-import axios from 'axios';
+import React,{Component} from 'react';
 import './App.css';
+import Header from './components/header/Header';
+import {BrowserRouter,Route} from 'react-router-dom';
+import Home from './components/Home';
+import Profile from './components/Profile';
+import About from './components/About';
+import {connect} from 'react-redux';
+import {fetchUserAction} from './actions/myactions';
+//    <NavBar />
 
 class App extends Component {
   constructor(props){
-  super(props);
-  this.state={
-    user:[],
-    isAuth:false,
-    courses:[],
-    searchField:'',
-    finalSearch:'',
-    providerSearch:'',
-    provider:'',
-    session:''
-  };
-}
+    super(props);
+    }
 
-componentDidMount(){
-    axios.get('http://localhost:5020/auth/verify')
-     .then((res)=>{
-        this.setState({
-          isAuth:true
-        })
-     })
+  componentDidMount() {
+    this.props.fetch_user();
+  }
 
-}
-
-
-  render(){
-    const {user,isAuth,courses,finalSearch,provider,session}=this.state;
-
+  render() {
     return (
-      <div className="App">
-        <header className="header" >
-          <h1 className="title">Online Course Search</h1>
-          {(!isAuth)?(
-            <button className='login-btn'><a href="http://localhost:5020/auth/google">Sign Up with Google</a></button>
-          ):(
-            <h1>Logged Successfull</h1>
-          )}
-        </header>
-
-      </div>
+      <BrowserRouter>
+        <Header />
+        {!this.props.user?(<Route exact path="/" component={Home} />):(
+            <h1 className="title">Online Course Search</h1>
+        )}
+        <Route path="/profile" component={Profile} />
+        <Route path="/about" component={About} />
+      </BrowserRouter>
     );
   }
 }
 
+const mapDispathToProps = (dispatch)=>{
+  return {
+    fetch_user:()=>{dispatch(fetchUserAction())}
+  };
+}
 
-export default App;
+const mapStateToProps=(state)=>{
+  return {
+    user:state.auth
+  };
+}
+
+
+export default connect(mapStateToProps,mapDispathToProps)(App);
