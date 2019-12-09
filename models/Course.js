@@ -3,47 +3,47 @@ const Schema = mongoose.Schema;
 
 // Create Shema
 const CourseSchema = new Schema({
-  Course Id:{
+  course_id:{
     type:Number,
     required: true
   },
-  Course Name:{
+  course_name:{
     type:String,
     required: true
   },
-  Provider:{
+  provider:{
     type:String,
     required: true
   },
-  Universities/Institutions:{
+  universities_institutions:{
     type:String,
     required: true
   },
-  Parent Subject:{
+  parent_subject:{
     type:String,
     required:true
   },
-  Parent Subject:{
+  parent_subject:{
     type:String,
     required: true
   },
-  Child Subject:{
+  child_subject:{
     type:String,
     required:true
   },
-  Url:{
+  url:{
     type:String,
     required: true
   },
-  Next Session Date:{
+  next_session_date:{
     type:String,
     required:true
   },
-  Length:{
+  length:{
     type:Number,
     required: true
   },
-  Video(Url):{
+  video_url:{
     type:String,
     required:true
   }
