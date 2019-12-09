@@ -6,6 +6,7 @@ const passport = require('passport');
 
 // Load User Model
 require('./models/User');
+require('./models/Course');
 
 
 // Passport Config
@@ -58,6 +59,8 @@ app.use(function(req, res, next) {
 
 // Use Routes
 app.use('/auth', auth);
+app.use('/courses',require('./routes/courses'));
+
 
 //set port
 const port=process.env.PORT || 5020;
