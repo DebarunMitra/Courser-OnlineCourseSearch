@@ -4,7 +4,6 @@ import Header from './components/header/Header';
 import {BrowserRouter,Route} from 'react-router-dom';
 import Home from './components/Home';
 import Profile from './components/Profile';
-import About from './components/About';
 import {connect} from 'react-redux';
 import {fetchUserAction} from './actions/myactions';
 //    <NavBar />
@@ -25,8 +24,8 @@ class App extends Component {
         {!this.props.user?(<Route exact path="/" component={Home} />):(
             <h1 className="title">Online Course Search</h1>
         )}
+
         <Route path="/profile" component={Profile} />
-        <Route path="/about" component={About} />
       </BrowserRouter>
     );
   }
