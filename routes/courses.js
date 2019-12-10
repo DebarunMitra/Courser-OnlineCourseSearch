@@ -8,15 +8,20 @@ const Courses = mongoose.model('courses');
  * @return [return all courses from database]
  */
 router.get('/',(req, res) => {
-  Courses.find({
+  const {page, perPage}=req.query;
+  const options={
+    page: (parseInt(page,10))?parseInt(page,10):1,
+    limit:(parseInt(perPage,10))?parseInt(perPage,10):10
+  }
+  Courses.paginate({
   provider:{$ne:''},
   universities_institutions:{$ne:''},
   child_subject:{$ne:''},
   url:{$ne:''},
   next_session_date:{$ne:''},
   video_url:{$ne:''}
-}).then(async courses => {
-  let len=await courses.length;
+},options).then(async courses => {
+  let len=await courses.docs.length;
     console.log(len);
     await res.status(200).send(courses);
   });
