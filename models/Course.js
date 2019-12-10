@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const mongoosePaginate= require('mongoose-paginate');
+
 const Schema = mongoose.Schema;
 
 // Create Shema
@@ -48,6 +50,8 @@ const CourseSchema = new Schema({
     required:true
   }
 });
+
+CourseSchema.plugin(mongoosePaginate);
 
 // Create collection and add schema
 mongoose.model('courses', CourseSchema);
