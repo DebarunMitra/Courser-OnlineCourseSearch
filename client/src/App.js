@@ -1,11 +1,11 @@
-import React,{Component, Fragment} from 'react';
+import React,{Component} from 'react';
 import './App.css';
 import Header from './components/header/Header';
 import {BrowserRouter,Route} from 'react-router-dom';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import {connect} from 'react-redux';
-import {fetchUserAction} from './actions/myactions';
+import {fetchUserAction,fetchCourses} from './actions/myactions';
 import  SearchBox  from './components/search-box/search-box.component';
 //    <NavBar />
 
@@ -16,6 +16,13 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetch_user();
+    this.props.fetch_courses();
+
+  }
+
+  getCourses=()=>{
+    console.log('ok');
+    console.log(this.props.courses);
   }
 
   render() {
@@ -23,12 +30,13 @@ class App extends Component {
       <BrowserRouter>
         <Header />
         {!this.props.user?(<Route exact path="/" component={Home} />):(
+          this.getCourses(),
             <h1 className="title">Online Course Search</h1>
         )}
           {this.props.user?(
             <form className="search-form">
-           <SearchBox placeholder="Search Courses"/>
-         </form>
+              <SearchBox placeholder="Search Courses"/>
+           </form>
           ):false}
 
         <Route path="/profile" component={Profile} />
@@ -39,13 +47,20 @@ class App extends Component {
 
 const mapDispathToProps = (dispatch)=>{
   return {
-    fetch_user:()=>{dispatch(fetchUserAction())}
+    fetch_user:()=>{
+      dispatch(fetchUserAction());
+    },
+    fetch_courses:()=>{
+      dispatch(fetchCourses());
+    }
   };
 }
 
 const mapStateToProps=(state)=>{
+//  console.log(state.courses);
   return {
-    user:state.auth
+    user:state.auth,
+    courses:state.courses
   };
 }
 
