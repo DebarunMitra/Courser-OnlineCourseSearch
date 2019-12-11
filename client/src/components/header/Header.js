@@ -11,7 +11,6 @@ render(){
             case null:
               return (
                 <React.Fragment>
-                  <li><a href="/auth/verify">Loading</a></li>
                   <li><a href="/auth/google">Sign Up</a></li>
                 </React.Fragment>
           );
@@ -23,7 +22,6 @@ render(){
                      <React.Fragment>
                        <li><a href="/auth/logout">Logout</a></li>
                        <li><Link to="/profile">Profile</Link></li>
-                       <li><Link to="/about">About</Link></li>
                       <li><a href="https://storyyo.herokuapp.com/auth/google">StoryYO</a></li>
                      </React.Fragment>
                  )
