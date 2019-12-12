@@ -30,7 +30,7 @@ render(){
 
   return (
           <nav>
-             <div className="nav-wrapper bar-color navbar">
+             <div className="bar-color navbar">
               <Link to={this.props.user ? '/profile' : '/'} className="brand-logo">Courser</Link>
               <ul id="nav-mobile" className="ul-position">
                 {rederContect()}
