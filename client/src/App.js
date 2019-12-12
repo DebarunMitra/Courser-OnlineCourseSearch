@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import {fetchUserAction,fetchCourses} from './actions/myactions';
 import  SearchBox  from './components/search-box/search-box.component';
 import Courses from './components/course/course.component';
+import Spinner from './components/spinner/spinner.component';
 //    <NavBar />
 
 class App extends Component {
@@ -43,23 +44,27 @@ class App extends Component {
               <SearchBox placeholder="Search Courses"/>
            </form>
           ):false}
-          {(courses!==undefined && this.props.user!==null)?(
-            courses.map((course,index)=>
-            <Courses
-              key={index}
-              courseId={course['Course Id']}
-              courseName={course['Course Name']}
-              provider={course.Provider}
-              uniOrIns={course['Universities/Institutions']}
-              nextSession={course['Next Session Date']}
-              childSubject={course['Child Subject']}
-              length={course.Length}
-              video={course['Video(Url)']}
-              url={course.Url}
-           />
-          )):(
-            <h6>no</h6>
-          )}
+          {(this.props.user)?(<h6 className="total-course">Course Found: {this.props.courses.courses.total}</h6>):<Spinner />}
+            <div className="courses">
+            {(courses!==undefined && this.props.user!==null)?(
+              courses.map((course,index)=>
+              <Courses
+                key={index}
+                courseId={course.course_id}
+                courseName={course.course_name}
+                provider={course.provider}
+                uniOrIns={course.universities_institutions}
+                nextSession={course.next_session_date}
+                childSubject={course.child_subject}
+                length={course.length}
+                video={course.video_url}
+                url={course.url}
+             />
+
+            )):(
+              <h6>no</h6>
+            )}
+            </div>
         <Route path="/profile" component={Profile} />
       </BrowserRouter>
     );
