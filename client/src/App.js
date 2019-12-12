@@ -7,6 +7,7 @@ import Profile from './components/Profile';
 import {connect} from 'react-redux';
 import {fetchUserAction,fetchCourses} from './actions/myactions';
 import  SearchBox  from './components/search-box/search-box.component';
+import Courses from './components/course/course.component';
 //    <NavBar />
 
 class App extends Component {
@@ -22,12 +23,14 @@ class App extends Component {
 
   getCourses=()=>{
     console.log('ok');
-  //  console.log(this.props.courses);
+    //console.log(this.props.courses);
   }
 
   render() {
-    // const courses=this.props.courses.docs;
-    // console.log(courses);
+     const courses=this.props.courses.courses.docs;
+     console.log(courses);
+     console.log(typeof(courses));
+
     return (
       <BrowserRouter>
         <Header />
@@ -40,6 +43,23 @@ class App extends Component {
               <SearchBox placeholder="Search Courses"/>
            </form>
           ):false}
+          {(courses!==undefined && this.props.user!==null)?(
+            courses.map((course,index)=>
+            <Courses
+              key={index}
+              courseId={course['Course Id']}
+              courseName={course['Course Name']}
+              provider={course.Provider}
+              uniOrIns={course['Universities/Institutions']}
+              nextSession={course['Next Session Date']}
+              childSubject={course['Child Subject']}
+              length={course.Length}
+              video={course['Video(Url)']}
+              url={course.Url}
+           />
+          )):(
+            <h6>no</h6>
+          )}
         <Route path="/profile" component={Profile} />
       </BrowserRouter>
     );
