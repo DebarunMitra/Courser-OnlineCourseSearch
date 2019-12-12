@@ -22,15 +22,17 @@ class App extends Component {
 
   getCourses=()=>{
     console.log('ok');
-    console.log(this.props.courses);
+  //  console.log(this.props.courses);
   }
 
   render() {
+    // const courses=this.props.courses.docs;
+    // console.log(courses);
     return (
       <BrowserRouter>
         <Header />
         {!this.props.user?(<Route exact path="/" component={Home} />):(
-          this.getCourses(),
+            this.getCourses(),
             <h1 className="title">Online Course Search</h1>
         )}
           {this.props.user?(
@@ -38,7 +40,6 @@ class App extends Component {
               <SearchBox placeholder="Search Courses"/>
            </form>
           ):false}
-
         <Route path="/profile" component={Profile} />
       </BrowserRouter>
     );
