@@ -43,6 +43,7 @@ body {
   color: var(--themeColor);
   font-weight: 50;
   font-size: 2rem;
+  text-align: center;
 }
 .search-form {
   min-height: 5vh;
