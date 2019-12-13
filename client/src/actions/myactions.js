@@ -20,3 +20,15 @@ export const fetchCourses = ()=>{
     })
   }
 }
+
+export const searchCourses = subject => (dispatch) => {
+  console.log(subject);
+  // axios
+  //   .delete(`/courses/subject/${subject}`)
+  //   .then(res =>
+  //     dispatch({
+  //       type: 'SEARCH_COURSE',
+  //       payload: res.data
+  //     })
+  //   );
+};
