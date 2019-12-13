@@ -22,10 +22,6 @@ class App extends Component {
 
   }
 
-  getCourses=()=>{
-    console.log('ok');
-    //console.log(this.props.courses);
-  }
 
   render() {
      const courses=this.props.courses.courses.docs;
@@ -36,13 +32,12 @@ class App extends Component {
       <BrowserRouter>
         <Header />
         {!this.props.user?(<Route exact path="/" component={Home} />):(
-            this.getCourses(),
             <h1 className="title">Online Course Search</h1>
         )}
           {this.props.user?(
-            <form className="search-form">
+            <div className="search-form">
               <SearchBox placeholder="Search Courses"/>
-           </form>
+           </div>
           ):false}
           {(this.props.user)?(<h6 className="total-course">Course Found: {this.props.courses.courses.total}</h6>):<Spinner />}
             <div className="courses">
@@ -60,8 +55,7 @@ class App extends Component {
                 video={course.video_url}
                 url={course.url}
              />
-
-            )):(
+           )):(
               <h6>no</h6>
             )}
             </div>
