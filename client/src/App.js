@@ -9,6 +9,7 @@ import {fetchUserAction,fetchCourses} from './actions/myactions';
 import  SearchBox  from './components/search-box/search-box.component';
 import Courses from './components/course/course.component';
 import Spinner from './components/spinner/spinner.component';
+import Pagination from './components/pagination/pagination.component';
 //    <NavBar />
 
 class App extends Component {
@@ -55,6 +56,9 @@ class App extends Component {
            )):(
               <h6>no</h6>
             )}
+            {(courses!==undefined && this.props.user!==null)?(
+              <Pagination />
+            ):false}
             </div>
         <Route path="/profile" component={Profile} />
       </BrowserRouter>
