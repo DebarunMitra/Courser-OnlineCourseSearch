@@ -4,6 +4,7 @@ import './search-box.style.css';
 import {searchCourses} from '../../actions/myactions';
 
 
+
 class SearchBox extends Component{
   constructor(props){
     super(props);
