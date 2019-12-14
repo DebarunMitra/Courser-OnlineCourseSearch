@@ -8,6 +8,8 @@ const initialState={
 export const courseReducer = (state=initialState,action)=>{
    switch(action.type){
        case 'GET_COURSES':
+       case 'SEARCH_COURSE':
+       console.log('GET_COURSES');
        return {
          courses:action.payload,
          loading:false
