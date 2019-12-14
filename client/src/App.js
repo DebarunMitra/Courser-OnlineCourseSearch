@@ -24,10 +24,7 @@ class App extends Component {
 
 
   render() {
-     const courses=this.props.courses.courses.docs;
-     console.log(courses);
-     console.log(typeof(courses));
-
+    const courses=this.props.courses.courses.docs;
     return (
       <BrowserRouter>
         <Header />
