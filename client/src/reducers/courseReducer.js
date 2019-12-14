@@ -2,6 +2,7 @@
 const initialState={
   courses:[],
   loading:true,
+  page:1,
   error:{}
 }
 
