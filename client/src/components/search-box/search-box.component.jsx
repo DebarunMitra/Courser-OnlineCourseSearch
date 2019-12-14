@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './search-box.style.css';
+import {searchCourses} from '../../actions/myactions';
 
 
 class SearchBox extends Component{
@@ -17,14 +18,19 @@ class SearchBox extends Component{
     this.setState({
       searchUpdate:e.target.value
     })
+    this.setState({
+      finalSearch:e.target.value
+    });
   }
 
   getSearch=e=>{
     e.preventDefault();
     this.setState({
       finalSearch:this.state.searchUpdate
-    })
+    });
+    this.props.searchCourses(this.state.finalSearch)
   }
+
 
   render(){
      const {search,updateSearch,placeholder}=this.props;
@@ -55,4 +61,4 @@ const mapStateToProps=(state)=>{
   };
 }
 
-export default connect(mapStateToProps)(SearchBox);
+export default connect(mapStateToProps,{searchCourses})(SearchBox);
