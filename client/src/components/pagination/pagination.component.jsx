@@ -26,7 +26,7 @@ class Pagination extends Component{
        <div className="pagination">
           <input type="button" className="pagination-newer" value="PREV" />
             <span className="pagination-inner">
-                <input id="1" type="button" className="pagination-active" onClick={this.getPage} value="1" />
+                 <input id="1" type="button" className="pagination-active" onClick={this.getPage} value="1" />
                  <input id="2" type="button" onClick={this.getPage} value="2" />
                  <input id="3" type="button" onClick={this.getPage} value="3" />
                  <input id="4" type="button" onClick={this.getPage} value="4" />
