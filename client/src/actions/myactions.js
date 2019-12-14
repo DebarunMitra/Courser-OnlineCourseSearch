@@ -21,14 +21,14 @@ export const fetchCourses = ()=>{
   }
 }
 
-export const searchCourses = subject => (dispatch) => {
-  console.log(subject);
-  // axios
-  //   .delete(`/courses/subject/${subject}`)
-  //   .then(res =>
-  //     dispatch({
-  //       type: 'SEARCH_COURSE',
-  //       payload: res.data
-  //     })
-  //   );
+export const searchCourses = subject =>{
+return (dispatch)=>{
+  axios.get(`/courses/search/${subject}`)
+    .then(res =>{
+      dispatch({
+        type: 'SEARCH_COURSE',
+        payload: res.data
+      })
+    })
+  };
 };
