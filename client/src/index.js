@@ -14,7 +14,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer=combineReducers({
   auth:authReducer,
-  searchCourse:'',
   courses:courseReducer
 });
 const store=createStore(rootReducer,composeEnhancers(applyMiddleware(thunk)));
