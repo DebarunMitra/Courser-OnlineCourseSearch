@@ -39,6 +39,7 @@ class SearchBox extends Component{
        <div className="search-box">
           <form onSubmit={this.getSearch}>
             <input
+              id="courseSearch"
               type="text"
               className="search-bar"
               value={search}
