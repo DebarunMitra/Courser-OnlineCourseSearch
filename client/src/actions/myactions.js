@@ -32,3 +32,21 @@ return (dispatch)=>{
     })
   };
 };
+
+export const paginationCourses = (subject,page) =>{
+ const query={
+   params:{
+     "page":page.toString()
+   }
+ };
+return (dispatch)=>{
+  axios.get(`/courses/search/${subject}`,query)
+    .then(res =>{
+      console.log(res.data);
+      dispatch({
+        type: 'PAGINATION_COURSE',
+        payload: res.data
+      })
+    })
+  };
+};
