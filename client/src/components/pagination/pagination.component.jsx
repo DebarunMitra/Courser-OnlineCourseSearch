@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './pagination.style.css';
-import {searchCourses} from '../../actions/myactions';
+import {paginationCourses} from '../../actions/myactions';
 
 
 class Pagination extends Component{
@@ -17,6 +17,12 @@ class Pagination extends Component{
         document.getElementById(i).className="";
     }
   }
+
+  let page=e.target.value,
+      subject=(document.getElementById("courseSearch").value)?document.getElementById("courseSearch").value:"blank";
+
+  this.props.paginationCourses(subject,page);
+
 }
 
   render(){
@@ -40,4 +46,4 @@ class Pagination extends Component{
   }
 }
 
-export default connect()(Pagination);
+export default connect(null,{paginationCourses})(Pagination);
