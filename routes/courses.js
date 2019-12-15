@@ -33,6 +33,7 @@ router.get('/',(req, res) => {
  */
 router.get('/search/:subject',(req, res) => {
   const {page, perPage}=req.query;
+  console.log(page);
   const options={
     page: (parseInt(page,10))?parseInt(page,10):1,
     limit:(parseInt(perPage,10))?parseInt(perPage,10):10
