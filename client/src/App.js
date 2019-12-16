@@ -17,6 +17,11 @@ class App extends Component {
     super(props);
     }
 
+    /**
+ * [componentDidMount]
+ * @return [fetch all course related data from database and user details]
+ */
+
   componentDidMount() {
     this.props.fetch_user();
     this.props.fetch_courses();
@@ -66,6 +71,10 @@ class App extends Component {
   }
 }
 
+/**
+ * [mapDispathToProps]
+ * @return  [mapDispatchToProps is used for dispatching actions to the store. dispatch is a function of the Redux store.]
+ */
 const mapDispathToProps = (dispatch)=>{
   return {
     fetch_user:()=>{
@@ -77,8 +86,12 @@ const mapDispathToProps = (dispatch)=>{
   };
 }
 
+
+/**
+ * [mapDispathToProps]
+ * @return  [mapStateToProps is used for selecting the part of the data from the store that the connected component needs. It's frequently referred to as just mapState for short.]
+ */
 const mapStateToProps=(state)=>{
-//  console.log(state.courses);
   return {
     user:state.auth,
     courses:state.courses
