@@ -11,6 +11,7 @@ class Pagination extends Component{
 
   getPage=e=>{
     for (let i = 1; i <= 6; i++) {
+      //change the selected page color
     if (i == e.target.value) {
         document.getElementById(i).className="pagination-active";
     } else {
