@@ -29,7 +29,7 @@ router.get('/',(req, res) => {
 
 /**
  * [/courses]
- * @return [return searched subject courses from database]
+ * @return [return searched subject courses from database with pagination]
  */
 router.get('/search/:subject',(req, res) => {
   const {page, perPage}=req.query;
@@ -57,7 +57,7 @@ router.get('/search/:subject',(req, res) => {
 
 /**
  * [/courses]
- * @return [return searched provider courses from database]
+ * @return [return searched provider courses from database with pagination]
  */
 router.get('/search/provider/:provider',(req, res) => {
   const {page, perPage}=req.query;
