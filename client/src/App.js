@@ -37,6 +37,7 @@ class App extends Component {
         {!this.props.user?(<Route exact path="/" component={Home} />):(
             <h1 className="title">Online Course Search</h1>
         )}
+          <Route path="/profile" component={Profile} />
           {this.props.user?(
             <div className="search-form">
               <SearchBox placeholder="Search Courses"/>
@@ -65,7 +66,7 @@ class App extends Component {
               <Pagination />
             ):false}
             </div>
-        <Route path="/profile" component={Profile} />
+
       </BrowserRouter>
     );
   }
