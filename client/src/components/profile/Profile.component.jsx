@@ -21,11 +21,10 @@ class Profile extends Component{
 
 render(){
   if(!this.props.user){
-       this.props.history.push('/')
+       this.props.history.push('/');
    }
   return (
         <div>
-           <h1>here is your profile </h1>
            <div className="card" style={{margin:"10%",padding:"10px",textAlign:"center"}}>
               <h2>{this.state.firstName}</h2>
               <img className="circle" src={this.state.image} alt=""/>
