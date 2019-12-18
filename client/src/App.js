@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
 import './App.css';
-import Header from './components/header/Header';
+import Header from './components/header/Header.component';
 import {BrowserRouter,Route} from 'react-router-dom';
-import Home from './components/Home';
-import Profile from './components/Profile';
+import Home from './components/home/Home.component';
+import Profile from './components/profile/Profile.component';
 import {connect} from 'react-redux';
 import {fetchUserAction,fetchCourses} from './actions/myactions';
 import  SearchBox  from './components/search-box/search-box.component';
@@ -59,7 +59,7 @@ class App extends Component {
                 url={course.url}
              />
            )):(
-              <h6>no</h6>
+              false
             )}
             {(courses!==undefined && this.props.user!==null)?(
               <Pagination />
