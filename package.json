@@ -21,13 +21,13 @@
   },
   "homepage": "https://github.com/DebarunMitra/Courser-OnlineCourseSearch#readme",
   "dependencies": {
-    "concurrently": "^5.0.0",
-    "create-react-app": "^3.3.0",
+    "concurrently": "^5.2.0",
+    "create-react-app": "^3.4.1",
     "express": "^4.17.1",
-    "express-session": "^1.17.0",
-    "mongoose": "^5.7.14",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.9.26",
     "mongoose-paginate": "^5.0.3",
-    "passport": "^0.4.0",
+    "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0"
   }
 }
